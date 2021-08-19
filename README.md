@@ -1,6 +1,6 @@
-## Hello Welcome To My GItHUB
+## WeB Store/ Toko online
 
-Build-with-angga Full-Stack Web Developer: Toko Online  
+Full-Stack Web Developer: Toko Online  
   
 
  - slicing hasil desain dengan HTML, CSS, dan Bootstrap
