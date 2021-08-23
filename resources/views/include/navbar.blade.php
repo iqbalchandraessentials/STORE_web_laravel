@@ -43,10 +43,10 @@ data-aos="fade-down"
       </li>
       @endguest
     </ul>
-    {{-- autenticated --}}
 
+    {{-- autenticated --}}
+    <!-- Desktop Menu -->
     @auth
-          <!-- Desktop Menu -->
           <ul class="navbar-nav d-none d-lg-flex">
             <li class="nav-item dropdown">
               <a
@@ -66,7 +66,7 @@ data-aos="fade-down"
                 Hi, {{ Auth::user()->name }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('Dashboard') }}">Dashboard</a>
+                <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                 <a class="dropdown-item" href="{{ route('dashboard-setting') }}"
                   >Settings</a
                 >

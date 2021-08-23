@@ -54,6 +54,9 @@ class CheckoutController extends Controller
                 'code' => $trx
             ]);
         }
+
+        Cart::where('users_id', Auth::user()->id)->delete();
+
         // Set your Merchant Server Key
         Config::$serverKey = config('services.midtrans.serverKey');
         Config::$isProduction = config('services.midtrans.isProduction');

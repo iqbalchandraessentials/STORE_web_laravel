@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class DashboardProductsController extends Controller
 {
     //
-      /**
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
