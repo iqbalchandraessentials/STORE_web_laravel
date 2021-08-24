@@ -52,78 +52,34 @@
       >
         <div class="row mt-3">
           <div class="col-12 mt-2">
+            @foreach ($sellTransactions as $sell)
             <a
-              class="card card-list d-block"
-              href="dashboard-transactions-details.html"
-            >
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-1">
-                    <img
-                      src="{{url('images/dashboard-icon-product-1.png')}}"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-md-4">Shirup Marzzan</div>
-                  <div class="col-md-3">Angga Risky</div>
-                  <div class="col-md-3">12 Januari, 2020</div>
-                  <div class="col-md-1 d-none d-md-block">
-                    <img
-                      src="{{url('images/dashboard-arrow-right.svg')}}"
-                      alt=""
-                    />
-                  </div>
+            class="card card-list d-block"
+            href="{{route('detail-product', $sell->product->slug)}}" target="_blank"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-1">
+                  <img
+                    src="{{ Storage::url($sell->product->galleries->first()->photos ?? '')}}"
+                    alt="" class="w-100"
+                  />
+                </div>
+                <div class="col-md-4">{{$sell->product->name}}</div>
+                <div class="col-md-3">{{$sell->product->user->store_name}}</div>
+                <div class="col-md-3">{{$sell->created_at}}</div>
+                <div class="col-md-1 d-none d-md-block">
+                  <img
+                    src="{{url('images/dashboard-arrow-right.svg')}}"
+                    alt=""
+                  />
                 </div>
               </div>
-            </a>
-            <a
-              class="card card-list d-block"
-              href="dashboard-transactions-details.html"
-            >
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-1">
-                    <img
-                      src="{{url('images/dashboard-icon-product-2.png')}}"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-md-4">LeBrone X</div>
-                  <div class="col-md-3">Masayoshi</div>
-                  <div class="col-md-3">11 January, 2020</div>
-                  <div class="col-md-1 d-none d-md-block">
-                    <img
-                      src="{{url('images/dashboard-arrow-right.svg')}}"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </a>
-            <a
-              class="card card-list d-block"
-              href="dashboard-transactions-details.html"
-            >
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-1">
-                    <img
-                      src="{{url('images/dashboard-icon-product-3.png')}}"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-md-4">Soffa Lembutte</div>
-                  <div class="col-md-3">Shayna</div>
-                  <div class="col-md-3">11 January, 2020</div>
-                  <div class="col-md-1 d-none d-md-block">
-                    <img
-                      src="{{url('images/dashboard-arrow-right.svg')}}"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </a>
+            </div>
+          </a>
+            @endforeach
+           
+
           </div>
         </div>
       </div>
@@ -135,30 +91,32 @@
       >
         <div class="row mt-3">
           <div class="col-12 mt-2">
+            @foreach ($buyTransactions as $buy)
             <a
-              class="card card-list d-block"
-              href="dashboard-transactions-details.html"
-            >
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-1">
-                    <img
-                      src="{{url('images/dashboard-icon-product-1.png')}}"
-                      alt=""
-                    />
-                  </div>
-                  <div class="col-md-4">Shirup Marzzan</div>
-                  <div class="col-md-3">Angga Risky</div>
-                  <div class="col-md-3">12 Januari, 2020</div>
-                  <div class="col-md-1 d-none d-md-block">
-                    <img
-                      src="{{url('images/dashboard-arrow-right.svg')}}"
-                      alt=""
-                    />
-                  </div>
+            class="card card-list d-block"
+            href="{{route('detail-product', $buy->product->slug)}}"
+          >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-1">
+                  <img
+                    src="{{ Storage::url($buy->product->galleries->first()->photos ?? '')}}"
+                    alt="" class="w-100"
+                  />
+                </div>
+                <div class="col-md-4">{{$buy->product->name}}</div>
+                <div class="col-md-3">{{$buy->product->user->store_name}}</div>
+                <div class="col-md-3">{{$buy->created_at}}</div>
+                <div class="col-md-1 d-none d-md-block">
+                  <img
+                    src="{{url('images/dashboard-arrow-right.svg')}}"
+                    alt=""
+                  />
                 </div>
               </div>
-            </a>
+            </div>
+          </a>
+            @endforeach
           </div>
         </div>
       </div>

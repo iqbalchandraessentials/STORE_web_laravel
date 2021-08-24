@@ -21,7 +21,7 @@ Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'
 Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'detail'])->name('categories-detail');
 
 Route::get('/detail/{id}', [App\Http\Controllers\DetailController::class, 'index'])->name('detail-product');
-Route::post('/detail/{id}', [App\Http\Controllers\DetailController::class, 'add'])->name('detail-add');
+Route::post('/details/{id}', [App\Http\Controllers\DetailController::class, 'add'])->name('detail-add');
 
 
 Route::get('/cart/success', [App\Http\Controllers\CartController::class, 'success'])->name('success-transaction');

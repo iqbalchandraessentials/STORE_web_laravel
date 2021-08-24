@@ -123,7 +123,7 @@
                             id="country"
                             name="country"
                             value="{{$users->country}}"
-                          />
+                          />  
                         </div>
                       </div>
                       <div class="col-md-5">

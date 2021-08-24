@@ -120,25 +120,6 @@ class DashboardController extends Controller
         return redirect()->route('dashboard-product');
     }
 
-
-
-
-
-    public function transaction()
-    {
-        return view('pages.dashboardTransaction');
-    }
-    public function transactionDetail()
-    {
-        return view('pages.dashboardTransactionDetail');
-    }
-    public function account()
-    {
-        $user = Auth::user();
-        return view('pages.dashboardAccount', [
-            'users' => $user,
-        ]);
-    }
     public function store()
     {
         $user = Auth::user();
@@ -155,5 +136,44 @@ class DashboardController extends Controller
         $item = Auth::user();
         $item->update($data);
         return redirect()->route($redirect);
+    }
+
+
+
+    public function transaction()
+    {
+        $sellTransactions = TransactionDetail::with(['transaction.user', 'product.galleries'])
+            ->whereHas('product', function ($product) {
+                $product->where('user_id', Auth::user()->id);
+            })
+            ->get();
+
+        $buyTransactions = TransactionDetail::with(['transaction.user', 'product.galleries'])
+            ->whereHas('transaction', function ($transaction) {
+                $transaction->where('users_id', Auth::user()->id);
+            })
+            ->get();
+
+        return view(
+            'pages.dashboardTransaction',
+            [
+                'sellTransactions' => $sellTransactions,
+                'buyTransactions' => $buyTransactions
+            ]
+        );
+    }
+
+
+
+    public function transactionDetail()
+    {
+        return view('pages.dashboardTransactionDetail');
+    }
+    public function account()
+    {
+        $user = Auth::user();
+        return view('pages.dashboardAccount', [
+            'users' => $user,
+        ]);
     }
 }
