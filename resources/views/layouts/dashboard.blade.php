@@ -42,7 +42,7 @@
             >
             <a
               href="{{route('dashboard-setting')}}"
-              class="list-group-item list-group-item-action {{(request()->is('dashboard/store') ? 'active' : '' )}}"
+              class="list-group-item list-group-item-action {{(request()->is('dashboard/setting') ? 'active' : '' )}}"
               >Store Settings</a
             >
             <a

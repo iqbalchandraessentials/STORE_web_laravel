@@ -134,10 +134,26 @@ class DashboardController extends Controller
     }
     public function account()
     {
-        return view('pages.dashboardAccount');
+        $user = Auth::user();
+        return view('pages.dashboardAccount', [
+            'users' => $user,
+        ]);
     }
     public function store()
     {
-        return view('pages.dashboardStore');
+        $user = Auth::user();
+        $categories = Category::all();
+        return view('pages.dashboardStore', [
+            'users' => $user,
+            'categories' => $categories
+        ]);
+    }
+
+    public function updateAccount(Request $request, $redirect)
+    {
+        $data = $request->all();
+        $item = Auth::user();
+        $item->update($data);
+        return redirect()->route($redirect);
     }
 }

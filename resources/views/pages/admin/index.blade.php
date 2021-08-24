@@ -31,7 +31,7 @@
                   <div class="card mb-2">
                     <div class="card-body">
                       <div class="dashboard-card-title">Revenue</div>
-                      <div class="dashboard-card-subtitle">Rp.{{$revenue}}</div>
+                      <div class="dashboard-card-subtitle">Rp. {{ number_format($revenue)}}</div>
                     </div>
                   </div>
                 </div>
@@ -39,7 +39,7 @@
                   <div class="card mb-2">
                     <div class="card-body">
                       <div class="dashboard-card-title">Transaction</div>
-                      <div class="dashboard-card-subtitle">Rp.{{$transaction}} </div>
+                      <div class="dashboard-card-subtitle">Rp.{{number_format($transaction)}} </div>
                     </div>
                   </div>
                 </div>

@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/product/{id}', [App\Http\Controllers\DashboardController::class, 'detail'])->name('dashboard-product-detail');
     Route::post('/dashboard/products/{id}', [App\Http\Controllers\DashboardController::class, 'update'])->name('dashboard-product-update');
     Route::get('/dashboard/create', [App\Http\Controllers\DashboardController::class, 'add'])->name('dashboard-create');
-    Route::post('/dashboard/store', [App\Http\Controllers\DashboardController::class, 'create'])->name('dashboard-product-store');
+    Route::post('/dashboard/udate', [App\Http\Controllers\DashboardController::class, 'create'])->name('dashboard-product-store');
 
 
     Route::post('dashboard/products/gallery/upload', [App\Http\Controllers\DashboardController::class, 'uploadGallery'])->name('dashboard-product-gallery-upload');
@@ -64,9 +64,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard/transaction/{id}', [App\Http\Controllers\DashboardController::class, 'transactionDetail'])->name('dashboard-transaction-detail');
 
+    Route::get('/dashboard/setting', [App\Http\Controllers\DashboardController::class, 'store'])->name('dashboard-setting');
     Route::get('/dashboard/account', [App\Http\Controllers\DashboardController::class, 'account'])->name('dashboard-account');
-
-    Route::get('/dashboard/store', [App\Http\Controllers\DashboardController::class, 'store'])->name('dashboard-setting');
+    Route::post('/dashboard/setting/{redirect}', [App\Http\Controllers\DashboardController::class, 'updateAccount'])->name('dashboard-setting-redirect');
 });
 
 
